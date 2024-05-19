@@ -1,0 +1,184 @@
+.home-header-container {
+    margin-top: -50px;
+    position: fixed;
+    background: #ffffff;
+    z-index: 10000;
+    height: 60px;
+    width: 100%;
+    padding: 0 20px;
+
+    .home-header-content {
+        width: 100%;
+        height: 100%;
+        display: flex;
+
+        .left-content {
+            width: 25%;
+
+            display: flex;
+            align-items: center;
+
+            .header-logo {
+                background: url(../../assets/logo.png) center no-repeat;
+                background-size: 60%;
+                height: 100%;
+                width: 100%;
+                cursor: pointer;
+            }
+            i {
+                font-size: 25px;
+                color: rgb(206, 202, 202);
+                margin-left: 30px;
+                cursor: pointer;
+            }
+        }
+
+        .center-content {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .child-center {
+                cursor: pointer;
+                div {
+                    &:hover {
+                        color: #49bce2;
+                    }
+                }
+                .sub-title {
+                    font-weight: 400;
+                    font-size: 12px;
+                }
+            }
+        }
+
+        .right-content {
+            width: 25%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            .support {
+                margin-right: 10px;
+                cursor: pointer;
+                &:hover {
+                    color: #49bce2;
+                }
+                i {
+                    font-size: 20px;
+                    color: #49bce2;
+                }
+            }
+            .language {
+                display: flex;
+                cursor: pointer;
+                color: rgb(207, 207, 203);
+
+                .language-vi {
+                    margin-right: 20px;
+                    &.active {
+                        color: red;
+                    }
+                }
+
+                .language-en {
+                    &.active {
+                        color: rgb(81, 0, 255);
+                    }
+                }
+            }
+        }
+    }
+}
+.home-header-banner {
+    margin-top: 50px;
+    background: url(../../assets/BG.jpg) center no-repeat;
+    height: 585px;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+
+    .banner-up {
+        height: 65%;
+
+        .title1 {
+            text-align: center;
+            font-size: 30px;
+            text-shadow: 1px 1px 1px #333;
+            margin-bottom: 10px;
+            margin-top: 60px;
+            color: white;
+        }
+        .title2 {
+            text-align: center;
+            font-size: 40px;
+            text-shadow: 1px 1px 1px #333;
+            color: white;
+            margin-bottom: 30px;
+        }
+        .search {
+            width: fit-content;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            padding: 10px;
+            border-radius: 25px;
+            background: #f7d800;
+            i {
+                margin: 0 10px;
+            }
+            input {
+                height: 30px;
+                width: 360px;
+                background: transparent;
+                border: none;
+                outline: none;
+            }
+        }
+    }
+
+    .banner-down {
+        height: 35%;
+        display: flex;
+        justify-content: center;
+        background-image: linear-gradient(
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0.9),
+            rgba(255, 255, 255, 1)
+        );
+
+        .option {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            gap: 50px;
+            align-items: end;
+            margin-bottom: 50px;
+            .option-child {
+                .icon-child {
+                    background: rgb(228, 235, 255);
+                    width: 40px;
+                    height: 40px;
+                    padding: 10px;
+                    border-radius: 50%;
+                    text-align: center;
+                    margin: 0 auto;
+
+                    i {
+                        font-size: 20px;
+                        color: #49bce2;
+                    }
+                }
+                .text-child {
+                    font-size: 17px;
+                    font-weight: bold;
+                    cursor: pointer;
+                    &:hover {
+                        color: #49bce2;
+                    }
+                }
+            }
+        }
+    }
+}

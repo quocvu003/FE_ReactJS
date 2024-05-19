@@ -19,4 +19,23 @@ const deleteUserService = inpitId => {
 const editUserService = data => {
     return axios.put(`/api/edit-user`, data)
 }
-export { handleLoginAPI, getAllUser, createNewUserService, deleteUserService, editUserService }
+const getAllCodeService = inputType => {
+    return axios.get(`/api/allcode?type=${inputType}`)
+}
+const getTopDoctorHomeService = limit => {
+    return axios.get(`/api/top-doctor-home?limit=${limit}`)
+}
+const getAllDoctors = () => {
+    return axios.get(`/api/get-all-doctors`)
+}
+
+export {
+    handleLoginAPI,
+    getAllUser,
+    createNewUserService,
+    deleteUserService,
+    editUserService,
+    getAllCodeService,
+    getTopDoctorHomeService,
+    getAllDoctors,
+}

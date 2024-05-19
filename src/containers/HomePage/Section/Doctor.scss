@@ -1,0 +1,86 @@
+.section-doctor {
+    height: 330px;
+    background-image: url('../../../assets/BG_doctor.png');
+
+    .doctor-container {
+        margin: 0 100px;
+        display: flex;
+        flex-direction: column;
+
+        .doctor-header {
+            height: 60px;
+            margin-bottom: 30px;
+            padding-top: 30px;
+            .title-section {
+                font-size: 22px;
+                font-weight: 600;
+            }
+        }
+        .btn-section {
+            float: right;
+            padding: 10px 15px;
+            border: none;
+            outline: none;
+            display: block;
+            background: #ebebeb;
+            color: black;
+            cursor: pointer;
+            text-transform: uppercase;
+            &:hover {
+                color: #fff;
+                background: #f7d800;
+            }
+        }
+    }
+    .doctor-body {
+        .doctor-customize {
+            padding: 10px 0;
+
+            .bg-image {
+                margin: auto;
+                width: 150px;
+                height: 150px;
+                border: 1px solid #d7d7d7;
+                border-radius: 50%;
+                // background: url('../../../assets/slider3.jpg');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-color: #eee;
+            }
+            div {
+                text-align: center;
+            }
+        }
+        .slick-prev {
+            left: -10px !important;
+            z-index: 1000 !important;
+            height: 48px !important;
+            width: 44px !important;
+            background: #fff !important;
+            border: 2px solid #d7d7d7 !important;
+            &:hover {
+                background: #ececec !important;
+            }
+        }
+        .slick-prev::before,
+        .slick-next::before {
+            font-family: FontAwesome !important;
+            color: red !important;
+        }
+        .slick-next {
+            right: -10px !important;
+            z-index: 1000 !important;
+            height: 48px !important;
+            width: 44px !important;
+            background: #fff !important;
+            border: 2px solid #d7d7d7 !important;
+            &:hover {
+                background: #ececec !important;
+            }
+        }
+        .slick-disabled {
+            display: none !important;
+        }
+    }
+}
