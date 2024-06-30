@@ -33,6 +33,9 @@
             "manage-specialty": "Manage Specialties",
             "handbook": "Handbooks",
             "manage-handbook": "Manage handbooks"
+        },
+        "doctor": {
+            "schedule": "Appointment scheduling management"
         }
     },
     "manage-user": {
@@ -54,5 +57,34 @@
     "home-page": {
         "doctor": "Out Standing Doctor",
         "more": "More infor"
+    },
+
+    "manage-schedule": {
+        "title": "Manage doctor's examination plan",
+        "choose-doctor": "Choose doctor",
+        "choose-date": "Choose date",
+        "save": "Save information"
+    },
+    "patient": {
+        "detail-doctor": {
+            "schedule": "Schedule",
+            "no-schedule": "The doctor does not have an apointment during this time!",
+            "choose": "Choose",
+            "book-free": " and book (free)"
+        }
+    },
+    "admin": {
+        "manage-doctor": {
+            "title": "Create more information about the doctor",
+            "select-doctor": "Choose Doctor",
+            "doctor-infor": "Doctor information",
+            "save": "Save information",
+            "price": "Price",
+            "payment": "Payment",
+            "province": "Province",
+            "nameClinic": "Clinic's name",
+            "addressClinic": "Clinic's address",
+            "note": "Note"
+        }
     }
 }

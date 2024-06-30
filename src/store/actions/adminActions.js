@@ -7,6 +7,7 @@ import {
     editUserService,
     getTopDoctorHomeService,
     getAllDoctors,
+    saveInfoDoctor,
 } from '../../services/userService'
 
 import 'react-toastify/dist/ReactToastify.css'
@@ -223,7 +224,7 @@ export const fetchTopDoctor = () => {
 
 // Get All Doctor
 
-export const fetchAllDoctor = () => {
+export const fetchAllDoctors = () => {
     return async (dispatch, getState) => {
         try {
             let res = await getAllDoctors('')
@@ -246,3 +247,93 @@ export const fetchAllDoctor = () => {
         }
     }
 }
+export const saveInfoDoctorRedux = data => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await saveInfoDoctor(data)
+
+            if (res.errCode === 0) {
+                toast.success('🦄 Save info doctor successfully!')
+                dispatch({
+                    type: actionTypes.SAVE_INFO_DOCTOR_SUCCESS,
+                })
+            } else {
+                toast.error('🦄  Save info doctor error!')
+                dispatch({
+                    type: actionTypes.SAVE_INFO_DOCTOR_FAILED,
+                })
+            }
+        } catch (e) {
+            toast.error('🦄  Save info doctor error!')
+
+            dispatch({
+                type: actionTypes.SAVE_INFO_DOCTOR_FAILED,
+            })
+        }
+    }
+}
+export const fetchAllScheduleTime = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await getAllCodeService('TIME')
+
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.FETCH_ALLCODE_SCHEDULE_TIME_SUCCESS,
+                    dataTime: res.data,
+                })
+            } else {
+                dispatch({
+                    type: actionTypes.FETCH_ALLCODE_SCHEDULE_TIME_FAILED,
+                })
+            }
+        } catch (e) {
+            console.log(e)
+            dispatch({
+                type: actionTypes.FETCH_ALLCODE_SCHEDULE_TIME_FAILED,
+            })
+        }
+    }
+}
+// getDoctorPrice
+export const getDoctorInfor = () => {
+    return async (dispatch, getState) => {
+        try {
+            dispatch({ type: actionTypes.FETCH_DOCTOR_INFOR_START })
+
+            let resPrice = await getAllCodeService('PRICE')
+            let resPayment = await getAllCodeService('PAYMENT')
+            let resProvince = await getAllCodeService('PROVINCE')
+
+            if (
+                resPrice &&
+                resPrice.errCode === 0 &&
+                resPayment &&
+                resPayment.errCode === 0 &&
+                resProvince &&
+                resProvince.errCode === 0
+            ) {
+                let data = {
+                    resPrice: resPrice.data,
+                    resPayment: resPayment.data,
+                    resProvince: resProvince.data,
+                }
+                dispatch(fetchDoctorInforSuccess(data))
+            } else {
+                dispatch(fetchDoctorInforFailed())
+            }
+        } catch (e) {
+            dispatch(fetchDoctorInforFailed())
+            console.log('fetchDoctorInforFailed', e)
+        }
+    }
+}
+
+export const fetchDoctorInforSuccess = data => ({
+    type: actionTypes.FETCH_DOCTOR_INFOR_SUCCESS,
+    data: data,
+})
+
+export const fetchDoctorInforFailed = () => ({
+    type: actionTypes.FETCH_DOCTOR_INFOR_FAILED,
+})

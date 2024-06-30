@@ -5,7 +5,6 @@ import * as actions from '../../store/actions'
 import { handleLoginAPI } from '../../services/userService'
 
 import './Login.scss'
-import { FormattedMessage } from 'react-intl'
 
 class Login extends Component {
     constructor(props) {
@@ -46,6 +45,11 @@ class Login extends Component {
             isShowPassword: !this.state.isShowPassword,
         })
     }
+    handlekeyDown = e => {
+        if (e.key === 'Enter' || e.keyCode === 13) {
+            this.handleLogin()
+        }
+    }
 
     render() {
         return (
@@ -76,6 +80,7 @@ class Login extends Component {
                                         onChange={event =>
                                             this.setState({ password: event.target.value })
                                         }
+                                        onKeyDown={e => this.handlekeyDown(e)}
                                     />
                                     <span onClick={() => this.handleShowHidePassword()}>
                                         <i

@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { FormattedMessage } from 'react-intl'
 import { LANGUAGES, CRUD_ACTIONS, CommonUtils } from '../../../utils'
 import * as actions from '../../../store/actions'
-import { Button } from 'antd'
+
 import './UserRedux.scss'
 import Lightbox from 'react-image-lightbox'
 import 'react-image-lightbox/style.css'
@@ -183,18 +183,8 @@ class UserRedux extends Component {
         let roles = this.state.roleArr
         let language = this.props.language
 
-        let {
-            email,
-            password,
-            firstName,
-            lastName,
-            phoneNumber,
-            address,
-            gender,
-            position,
-            role,
-            avatar,
-        } = this.state
+        let { email, password, firstName, lastName, phoneNumber, address, gender, position, role } =
+            this.state
 
         return (
             <div>
@@ -380,9 +370,7 @@ class UserRedux extends Component {
                             <FormattedMessage id="manage-user.save" />
                         </button>
                     </div>
-                    {/* <div class="button-borders">
-                        <button class="primary-button"> BUTTON</button>
-                    </div> */}
+
                     {this.state.isOpen && (
                         <Lightbox
                             mainSrc={this.state.previewImg}

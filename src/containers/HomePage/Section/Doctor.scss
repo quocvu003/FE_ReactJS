@@ -35,6 +35,7 @@
     .doctor-body {
         .doctor-customize {
             padding: 10px 0;
+            cursor: pointer;
 
             .bg-image {
                 margin: auto;
@@ -42,7 +43,7 @@
                 height: 150px;
                 border: 1px solid #d7d7d7;
                 border-radius: 50%;
-                // background: url('../../../assets/slider3.jpg');
+
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: cover;

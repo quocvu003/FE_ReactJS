@@ -7,7 +7,7 @@ import 'slick-carousel/slick/slick-theme.css'
 import * as actions from '../../../store/actions'
 import { LANGUAGES } from '../../../utils'
 import { FormattedMessage } from 'react-intl'
-
+import { withRouter } from 'react-router'
 class Doctor extends Component {
     constructor(props) {
         super(props)
@@ -27,9 +27,15 @@ class Doctor extends Component {
     componentDidMount() {
         this.props.loadTopDoctors()
     }
+
+    handleViewDetailDoctor = doctor => {
+        if (this.props.history) {
+            this.props.history.push(`/detail-doctor/${doctor.id}`)
+        }
+    }
     render() {
         let arrDoctors = this.state.arrDoctors
-
+        console.log(arrDoctors)
         let { language } = this.props
 
         return (
@@ -41,7 +47,6 @@ class Doctor extends Component {
                                 <FormattedMessage id="home-page.doctor" />
                             </span>
                             <button className="btn-section">
-                                {' '}
                                 <FormattedMessage id="home-page.more" />
                             </button>
                         </div>
@@ -59,7 +64,10 @@ class Doctor extends Component {
                                         let nameVi = `${item.positionData.valueVI}, ${item.lastName} ${item.firstName} `
                                         let nameEn = `${item.positionData.valueEN}, ${item.lastName} ${item.firstName} `
                                         return (
-                                            <div className="doctor-customize" key={index}>
+                                            <div
+                                                className="doctor-customize"
+                                                key={index}
+                                                onClick={() => this.handleViewDetailDoctor(item)}>
                                                 <div
                                                     className="bg-image"
                                                     style={{
@@ -96,4 +104,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Doctor)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Doctor))
