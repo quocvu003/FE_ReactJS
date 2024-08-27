@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { FormattedMessage } from 'react-intl'
 import { LANGUAGES, CRUD_ACTIONS, CommonUtils } from '../../../utils'
 import * as actions from '../../../store/actions'
-
 import './UserRedux.scss'
 import Lightbox from 'react-image-lightbox'
 import 'react-image-lightbox/style.css'
@@ -89,7 +88,14 @@ class UserRedux extends Component {
         })
     }
     handleValidate = () => {
-        let arrCheck = ['email', 'password', 'firstName', 'lastName', 'phoneNumber', 'address']
+        let arrCheck = [
+            'email',
+            'password',
+            'firstName',
+            'lastName',
+            'phoneNumber',
+            'address',
+        ]
         let isValid = true
         for (let i = 0; i < arrCheck.length; i++) {
             if (!this.state[arrCheck[i]]) {
@@ -183,8 +189,17 @@ class UserRedux extends Component {
         let roles = this.state.roleArr
         let language = this.props.language
 
-        let { email, password, firstName, lastName, phoneNumber, address, gender, position, role } =
-            this.state
+        let {
+            email,
+            password,
+            firstName,
+            lastName,
+            phoneNumber,
+            address,
+            gender,
+            position,
+            role,
+        } = this.state
 
         return (
             <div>
@@ -207,7 +222,9 @@ class UserRedux extends Component {
                                 onChange={e => {
                                     this.onChangeInput(e, 'email')
                                 }}
-                                disabled={this.state.action === CRUD_ACTIONS.EDIT}></input>
+                                disabled={
+                                    this.state.action === CRUD_ACTIONS.EDIT
+                                }></input>
                         </div>
                         <div className="col-3">
                             <label>
@@ -220,7 +237,9 @@ class UserRedux extends Component {
                                 onChange={e => {
                                     this.onChangeInput(e, 'password')
                                 }}
-                                disabled={this.state.action === CRUD_ACTIONS.EDIT}></input>
+                                disabled={
+                                    this.state.action === CRUD_ACTIONS.EDIT
+                                }></input>
                         </div>
 
                         <div className="col-3">
@@ -290,7 +309,9 @@ class UserRedux extends Component {
                                     genders.length > 0 &&
                                     genders.map((item, index) => {
                                         return (
-                                            <option key={index} value={item.keyMap}>
+                                            <option
+                                                key={index}
+                                                value={item.keyMap}>
                                                 {language === LANGUAGES.VI
                                                     ? item.valueVI
                                                     : item.valueEN}
@@ -314,7 +335,9 @@ class UserRedux extends Component {
                                     positions.length > 0 &&
                                     positions.map((item, index) => {
                                         return (
-                                            <option key={index} value={item.keyMap}>
+                                            <option
+                                                key={index}
+                                                value={item.keyMap}>
                                                 {language === LANGUAGES.VI
                                                     ? item.valueVI
                                                     : item.valueEN}
@@ -339,7 +362,9 @@ class UserRedux extends Component {
                                     roles.length > 0 &&
                                     roles.map((item, index) => {
                                         return (
-                                            <option key={index} value={item.keyMap}>
+                                            <option
+                                                key={index}
+                                                value={item.keyMap}>
                                                 {language === LANGUAGES.VI
                                                     ? item.valueVI
                                                     : item.valueEN}
@@ -354,19 +379,25 @@ class UserRedux extends Component {
                             </label>
 
                             <div className="preview-image-container">
-                                <input type="file" onChange={e => this.handleImage(e)}></input>
+                                <input
+                                    type="file"
+                                    onChange={e => this.handleImage(e)}></input>
                                 <div
                                     className="preview-image"
                                     style={{
                                         backgroundImage: `url(${this.state.previewImg})`,
                                     }}
-                                    onClick={() => this.handlePreviewImage()}></div>
+                                    onClick={() =>
+                                        this.handlePreviewImage()
+                                    }></div>
                             </div>
                         </div>
                     </div>
 
                     <div className="mb-5 button-borders">
-                        <button className=" primary-button" onClick={e => this.handleSaveUser(e)}>
+                        <button
+                            className=" primary-button"
+                            onClick={e => this.handleSaveUser(e)}>
                             <FormattedMessage id="manage-user.save" />
                         </button>
                     </div>
@@ -374,7 +405,9 @@ class UserRedux extends Component {
                     {this.state.isOpen && (
                         <Lightbox
                             mainSrc={this.state.previewImg}
-                            onCloseRequest={() => this.setState({ isOpen: false })}
+                            onCloseRequest={() =>
+                                this.setState({ isOpen: false })
+                            }
                         />
                     )}
                     <TableManageUser

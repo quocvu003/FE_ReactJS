@@ -71,6 +71,12 @@ export const doctorMenu = [
                 name: 'menu.doctor.schedule',
                 link: '/doctor/manage-schedule',
             },
+            {
+                //Quản lý bệnh nhân của bac sĩ
+
+                name: 'menu.doctor.patient',
+                link: '/doctor/manage-patient',
+            },
         ],
     },
 ]

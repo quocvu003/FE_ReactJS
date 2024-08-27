@@ -82,7 +82,10 @@ class ManageDoctor extends Component {
     }
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (prevProps.allDoctors !== this.props.allDoctors) {
-            let dataSelect = this.buildataInputSelect(this.props.allDoctors, 'USERS')
+            let dataSelect = this.buildataInputSelect(
+                this.props.allDoctors,
+                'USERS'
+            )
 
             this.setState({
                 listDoctors: dataSelect,
@@ -90,13 +93,20 @@ class ManageDoctor extends Component {
         }
 
         if (prevProps.allDoctorInfor !== this.props.allDoctorInfor) {
-            let { resPrice, resPayment, resProvince } = this.props.allDoctorInfor
+            let { resPrice, resPayment, resProvince } =
+                this.props.allDoctorInfor
 
             let dataselectPrice = this.buildataInputSelect(resPrice, 'PRICE')
 
-            let dataselectPayment = this.buildataInputSelect(resPayment, 'PAYMENT')
+            let dataselectPayment = this.buildataInputSelect(
+                resPayment,
+                'PAYMENT'
+            )
 
-            let dataselectProvince = this.buildataInputSelect(resProvince, 'PROVINCE')
+            let dataselectProvince = this.buildataInputSelect(
+                resProvince,
+                'PROVINCE'
+            )
 
             this.setState({
                 listPrice: dataselectPrice,
@@ -105,11 +115,21 @@ class ManageDoctor extends Component {
             })
         }
         if (prevProps.language !== this.props.language) {
-            let dataSelect = this.buildataInputSelect(this.props.allDoctors, 'USERS')
-            let { resPayment, resProvince, resPrice } = this.props.allDoctorInfor
+            let dataSelect = this.buildataInputSelect(
+                this.props.allDoctors,
+                'USERS'
+            )
+            let { resPayment, resProvince, resPrice } =
+                this.props.allDoctorInfor
             let dataselectPrice = this.buildataInputSelect(resPrice, 'PRICE')
-            let dataselectPayment = this.buildataInputSelect(resPayment, 'PAYMENT')
-            let dataselectProvince = this.buildataInputSelect(resProvince, 'PROVINCE')
+            let dataselectPayment = this.buildataInputSelect(
+                resPayment,
+                'PAYMENT'
+            )
+            let dataselectProvince = this.buildataInputSelect(
+                resProvince,
+                'PROVINCE'
+            )
             this.setState({
                 listDoctors: dataSelect,
                 listPrice: dataselectPrice,
@@ -119,12 +139,12 @@ class ManageDoctor extends Component {
         }
     }
 
-    // handleEditorChange = ({ html, text }) => {
-    //     this.setState({
-    //         contentMarkdown: text,
-    //         contentHTML: html,
-    //     })
-    // }
+    handleEditorChange = ({ html, text }) => {
+        this.setState({
+            contentMarkdown: text,
+            contentHTML: html,
+        })
+    }
     handleSaveContentMarkdown = () => {
         let { hasOldData } = this.state
         this.props.saveInfoDoctor({
@@ -132,7 +152,8 @@ class ManageDoctor extends Component {
             contentMarkdown: this.state.contentMarkdown,
             description: this.state.description,
             doctorId: this.state.selectedOption.value,
-            action: hasOldData === true ? CRUD_ACTIONS.EDIT : CRUD_ACTIONS.CREATE,
+            action:
+                hasOldData === true ? CRUD_ACTIONS.EDIT : CRUD_ACTIONS.CREATE,
 
             selectPrice: this.state.selectPrice.value,
             selectPayment: this.state.selectPayment.value,
@@ -237,7 +258,9 @@ class ManageDoctor extends Component {
                             value={this.state.selectedOption}
                             onChange={this.handleChangeSelect}
                             options={this.state.listDoctors}
-                            placeholder={<FormattedMessage id="admin.manage-doctor.select-doctor" />}
+                            placeholder={
+                                <FormattedMessage id="admin.manage-doctor.select-doctor" />
+                            }
                         />
                     </div>
                     <div className="content-right form-group">
@@ -247,7 +270,9 @@ class ManageDoctor extends Component {
                         <textarea
                             className="form-control"
                             rows="4"
-                            onChange={e => this.handleOnChangeText(e, 'description')}
+                            onChange={e =>
+                                this.handleOnChangeText(e, 'description')
+                            }
                             value={this.state.description}></textarea>
                     </div>
                 </div>
@@ -258,7 +283,9 @@ class ManageDoctor extends Component {
                         </label>
                         <input
                             className="form-control"
-                            onChange={e => this.handleOnChangeText(e, 'nameClinic')}
+                            onChange={e =>
+                                this.handleOnChangeText(e, 'nameClinic')
+                            }
                             value={this.state.nameClinic}
                         />
                     </div>
@@ -270,7 +297,9 @@ class ManageDoctor extends Component {
                             value={this.state.selectPrice}
                             onChange={this.handleChangeSelectDoctorInfor}
                             options={this.state.listPrice}
-                            placeholder={<FormattedMessage id="admin.manage-doctor.price" />}
+                            placeholder={
+                                <FormattedMessage id="admin.manage-doctor.price" />
+                            }
                             name="selectPrice"
                         />
                     </div>
@@ -280,7 +309,9 @@ class ManageDoctor extends Component {
                         </label>
                         <input
                             className="form-control"
-                            onChange={e => this.handleOnChangeText(e, 'addressClinic')}
+                            onChange={e =>
+                                this.handleOnChangeText(e, 'addressClinic')
+                            }
                             value={this.state.addressClinic}
                         />
                     </div>
@@ -292,7 +323,9 @@ class ManageDoctor extends Component {
                             value={this.state.selectProvince}
                             onChange={this.handleChangeSelectDoctorInfor}
                             options={this.state.listProvince}
-                            placeholder={<FormattedMessage id="admin.manage-doctor.province" />}
+                            placeholder={
+                                <FormattedMessage id="admin.manage-doctor.province" />
+                            }
                             name="selectProvince"
                         />
                     </div>
@@ -305,7 +338,9 @@ class ManageDoctor extends Component {
                             value={this.state.selectPayment}
                             onChange={this.handleChangeSelectDoctorInfor}
                             options={this.state.listPayment}
-                            placeholder={<FormattedMessage id="admin.manage-doctor.payment" />}
+                            placeholder={
+                                <FormattedMessage id="admin.manage-doctor.payment" />
+                            }
                             name="selectPayment"
                         />
                     </div>
@@ -329,7 +364,9 @@ class ManageDoctor extends Component {
                     />
                 </div>
                 <div className="mb-5 button-borders">
-                    <button className="primary-button" onClick={() => this.handleSaveContentMarkdown()}>
+                    <button
+                        className="primary-button"
+                        onClick={() => this.handleSaveContentMarkdown()}>
                         <FormattedMessage id="admin.manage-doctor.save" />
                     </button>
                 </div>

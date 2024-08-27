@@ -35,7 +35,8 @@
             "manage-handbook": "Quản lý cẩm nang"
         },
         "doctor": {
-            "schedule": "Quản lý lịch khám bệnh"
+            "schedule": "Quản lý lịch khám bệnh",
+            "patient": "Quản lý bệnh nhân đặt lịch"
         }
     },
     "manage-user": {
@@ -70,6 +71,26 @@
             "no-schedule": "Bác sĩ không có lịch hẹn hôm nay!",
             "choose": "Chọn",
             "book-free": " và đặt (Miễn phí)"
+        },
+        "extra-infor-doctor": {
+            "text-address": "Địa chỉ khám",
+            "price": "Giá khám:",
+            "detail": "Xem chi tiết",
+            "payment": "Người bệnh có thể thanh toán chi phí bằng hình thức:",
+            "hide-price": "Ẩn bảng giá"
+        },
+        "booking-modal": {
+            "title": "Thông tin đặt lịch khám bệnh",
+            "fullName": "Họ và Tên",
+            "phone": "Số điện thoại",
+            "email": "Email",
+            "address": "Địa chỉ",
+            "reason": "Lý do khám bệnh",
+            "birthday": "Ngày sinh",
+            "gender": "Giới tính",
+            "price": "Giá khám :",
+            "confirm": "Xác nhận",
+            "cancel": "Hủy "
         }
     },
     "admin": {

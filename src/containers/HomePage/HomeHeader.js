@@ -5,6 +5,7 @@ import { FormattedMessage } from 'react-intl'
 import { LANGUAGES } from '../../utils'
 import { changeLanguageApp } from '../../store/actions'
 import { withRouter } from 'react-router'
+import * as actions from '../../store/actions'
 class HomeHeader extends Component {
     changeLanguage = language => {
         this.props.changeLanguageRedux(language)
@@ -17,7 +18,8 @@ class HomeHeader extends Component {
 
     render() {
         let language = this.props.language
-
+        const { processLogout } = this.props
+        console.log('🚀 ~ HomeHeader ~ render ~ processLogout:', processLogout)
         return (
             <React.Fragment>
                 <div className="home-header-container">
@@ -28,7 +30,10 @@ class HomeHeader extends Component {
                             {/* <a href="/" className="header-logo">
                                 ''
                             </a> */}
-                            <div className="header-logo" onClick={() => this.returnToHome()} />
+                            <div
+                                className="header-logo"
+                                onClick={() => this.returnToHome()}
+                            />
                         </div>
                         <div className="center-content">
                             <div className="child-center">
@@ -85,7 +90,10 @@ class HomeHeader extends Component {
                                             ? 'language-vi active'
                                             : 'language-vi'
                                     }>
-                                    <span onClick={() => this.changeLanguage(LANGUAGES.VI)}>
+                                    <span
+                                        onClick={() =>
+                                            this.changeLanguage(LANGUAGES.VI)
+                                        }>
                                         VI
                                     </span>
                                 </div>
@@ -95,10 +103,19 @@ class HomeHeader extends Component {
                                             ? 'language-en active'
                                             : 'language-en'
                                     }>
-                                    <span onClick={() => this.changeLanguage(LANGUAGES.EN)}>
+                                    <span
+                                        onClick={() =>
+                                            this.changeLanguage(LANGUAGES.EN)
+                                        }>
                                         EN
                                     </span>
                                 </div>
+                            </div>
+                            <div
+                                className="btn btn-logout"
+                                onClick={processLogout}
+                                title="Logout">
+                                <i className="fas fa-sign-out-alt"></i>
                             </div>
                         </div>
                     </div>
@@ -193,7 +210,10 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         changeLanguageRedux: language => dispatch(changeLanguageApp(language)),
+        processLogout: () => dispatch(actions.processLogout()),
     }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HomeHeader))
+export default withRouter(
+    connect(mapStateToProps, mapDispatchToProps)(HomeHeader)
+)

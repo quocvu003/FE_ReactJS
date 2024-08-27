@@ -35,11 +35,12 @@
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
+
             button {
                 padding: 8px 10px;
                 border: none;
                 outline: none;
-                min-width: 120px;
+                width: 160px;
                 background-color: #ff994b;
                 border-radius: 3px;
                 font-weight: 600;
